@@ -1,0 +1,60 @@
+<svg viewBox="0 0 960 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="760" fill="#FAFAFA"/>
+
+  <!-- Frontend layer -->
+  <rect x="60" y="30" width="840" height="110" rx="14" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="480" y="60" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20" font-weight="600" fill="#312E81">React Frontend</text>
+  <text x="480" y="86" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#3730A3">Dashboard · Processes · Analytics · Assistant · Files</text>
+  <text x="480" y="106" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#3730A3">Logs · Predictions · Hardware · Alerts · User Management</text>
+
+  <!-- Arrows frontend -> backend -->
+  <line x1="330" y1="140" x2="330" y2="182" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="345" y="165" font-family="Consolas, Monaco, monospace" font-size="12" fill="#475569">REST (Axios)</text>
+
+  <line x1="630" y1="140" x2="630" y2="182" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="645" y="165" font-family="Consolas, Monaco, monospace" font-size="12" fill="#475569">WebSocket</text>
+
+  <!-- Backend outer layer -->
+  <rect x="60" y="190" width="840" height="290" rx="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+  <text x="82" y="216" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#334155">FastAPI Backend</text>
+
+  <!-- API layer -->
+  <rect x="90" y="228" width="780" height="60" rx="10" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+  <text x="480" y="264" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#1E3A8A">API routers · WebSocket manager · Auth / RBAC</text>
+
+  <line x1="480" y1="288" x2="480" y2="308" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Service layer -->
+  <rect x="90" y="310" width="780" height="150" rx="10" fill="#D1FAE5" stroke="#10B981" stroke-width="2"/>
+  <text x="480" y="336" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#065F46">Service Layer</text>
+  <text x="480" y="360" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#065F46">Monitoring · Process · Analytics · Recommendation</text>
+  <text x="480" y="380" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#065F46">Prediction (ML) · FileAnalyzer · LogAnalyzer · Optimization</text>
+  <text x="480" y="400" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#065F46">Assistant · Alerts · Auth · Hardware</text>
+
+  <!-- Arrow backend -> data -->
+  <line x1="480" y1="480" x2="480" y2="512" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="495" y="500" font-family="Consolas, Monaco, monospace" font-size="12" fill="#475569">SQLAlchemy ORM</text>
+
+  <!-- Data layer -->
+  <rect x="60" y="514" width="840" height="110" rx="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="380" y="546" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#92400E">Data Layer</text>
+  <text x="380" y="570" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="13" fill="#92400E">SQLAlchemy ORM + Alembic migrations</text>
+
+  <!-- MySQL cylinder icon -->
+  <g>
+    <path d="M 760 545 a 45 10 0 0 1 90 0 v 40 a 45 10 0 0 1 -90 0 z" fill="#FDE68A" stroke="#B45309" stroke-width="2"/>
+    <ellipse cx="805" cy="545" rx="45" ry="10" fill="#FDE68A" stroke="#B45309" stroke-width="2"/>
+    <text x="805" y="598" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#78350F">MySQL</text>
+  </g>
+
+  <!-- Background tasks strip -->
+  <rect x="60" y="650" width="840" height="80" rx="12" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="6,5"/>
+  <text x="480" y="678" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Background tasks</text>
+  <text x="480" y="702" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="12" fill="#64748B">broadcast metrics ~2s · persist + alerts ~60s · retrain ML every 24h</text>
+</svg>
