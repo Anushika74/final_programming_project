@@ -1,0 +1,37 @@
+# SystemIQ backend systemd unit (TEMPLATE).
+#
+# This is a reference template. The recommended way to install is the
+# accompanying script, which fills in your user and absolute paths automatically:
+#
+#     sudo bash deploy/install_service.sh
+#
+# If you prefer to install manually, copy this file to
+# /etc/systemd/system/systemiq.service and replace:
+#   <USER>          -> your Linux username (e.g. anushika)
+#   <BACKEND_DIR>   -> absolute path to the backend dir
+#                      (e.g. /home/anushika/systemIQ/backend)
+# then run:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now systemiq
+
+[Unit]
+Description=SystemIQ backend (AI system monitoring + metrics collection)
+After=network.target
+
+[Service]
+Type=simple
+User=<USER>
+WorkingDirectory=<BACKEND_DIR>
+# Use the virtualenv's executables directly (no activation needed).
+Environment=PATH=<BACKEND_DIR>/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# Ensure the database schema exists before starting.
+ExecStartPre=<BACKEND_DIR>/.venv/bin/alembic upgrade head
+# Bind to localhost only for security (the dashboard runs on the same machine).
+# To allow access from other devices on your network, change to 0.0.0.0 and
+# ensure you have set a strong SECRET_KEY and changed the admin password.
+ExecStart=<BACKEND_DIR>/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

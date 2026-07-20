@@ -1,0 +1,42 @@
+[
+  {
+    "metric": "cpu",
+    "model": "random_forest",
+    "n_train": 1216,
+    "n_test": 305,
+    "mae": 3.341,
+    "rmse": 7.079,
+    "r2": -0.263,
+    "mape_pct": 110.92
+  },
+  {
+    "metric": "memory",
+    "model": "random_forest",
+    "n_train": 1216,
+    "n_test": 305,
+    "mae": 3.305,
+    "rmse": 6.976,
+    "r2": 0.683,
+    "mape_pct": 7.12
+  },
+  {
+    "metric": "disk",
+    "model": "random_forest",
+    "n_train": 1216,
+    "n_test": 305,
+    "mae": 0.034,
+    "rmse": 0.059,
+    "r2": -0.525,
+    "mape_pct": 0.21
+  },
+  {
+    "metric": "network",
+    "model": "random_forest",
+    "n_train": 1216,
+    "n_test": 305,
+    "mae": 26886.011,
+    "rmse": 130764.872,
+    "r2": 0.058,
+    "mape_pct": 920.21
+  }
+]

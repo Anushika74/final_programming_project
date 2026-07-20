@@ -1,0 +1,5 @@
+metric,model,n_train,n_test,mae,rmse,r2,mape_pct
+cpu,random_forest,1216,305,3.341,7.079,-0.263,110.92
+memory,random_forest,1216,305,3.305,6.976,0.683,7.12
+disk,random_forest,1216,305,0.034,0.059,-0.525,0.21
+network,random_forest,1216,305,26886.011,130764.872,0.058,920.21

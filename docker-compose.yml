@@ -1,0 +1,47 @@
+# SystemIQ full stack: PostgreSQL + FastAPI backend + React/nginx frontend.
+#
+# Note on monitoring scope: inside a container the backend reports the
+# container's view of resources. For true host monitoring, run the backend
+# directly on the host (see docs/DEPLOYMENT.md) or grant host PID/namespace
+# access. This compose file is ideal for development and demos.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: systemiq
+      POSTGRES_PASSWORD: systemiq
+      POSTGRES_DB: systemiq
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U systemiq"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://systemiq:systemiq@db:5432/systemiq
+      SECRET_KEY: change-me-in-production
+      ENVIRONMENT: production
+      CORS_ORIGINS: http://localhost:8080
+    ports:
+      - "8000:8000"
+    # Allow host metrics visibility on Linux (optional, comment out if undesired):
+    # pid: "host"
+    # privileged: true
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:
