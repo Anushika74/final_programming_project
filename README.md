@@ -43,7 +43,7 @@ SystemIQ is a system monitoring dashboard I built for my final-year HND project.
 
 I built SystemIQ around a clean three-layer architecture, keeping the HTTP/WebSocket layer, the business logic, and the data layer clearly separated:
 
-![SystemIQ architecture diagram](docs/architecture.svg)
+![SystemIQ architecture diagram](docs/architecture(1).svg)
 
 ## Tech Stack
 
